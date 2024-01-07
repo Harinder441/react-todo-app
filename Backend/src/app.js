@@ -19,6 +19,26 @@ app.use("/v1", routes);
 // TODO - Create a MongoDB connection using Mongoose
 
 // Start the Node server
-app.listen(config.port, () => {
-  console.log(`App is running on port ${config.port}`);
+// app.listen(config.port, () => {
+//   console.log(`App is running on port ${config.port}`);
+// });
+
+
+
+// Create a MongoDB connection using Mongoose
+
+mongoose.connect(config.mongoose.url).then(() => {
+
+  console.log("Connected to MongoDB");
+
+
+  // Start the Node server
+
+  app.listen(config.port, () => {
+
+    console.log(`App is running on port ${config.port}`);
+
+  });
+
 });
+
